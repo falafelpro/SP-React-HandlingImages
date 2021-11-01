@@ -7,8 +7,9 @@ function ProductCard({ product }) {
   const handleDelete = () => productStore.deleteProduct(product._id);
   console.log(product);
   const handleDuplicate = () => {
-    delete product._id;
-    productStore.createProduct(product);
+    const test = Object.assign({}, product);
+    delete test._id;
+    productStore.createProduct(test);
   };
 
   return (
