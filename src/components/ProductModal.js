@@ -27,7 +27,8 @@ function ProductModal({ oldProduct }) {
     else productStore.createProduct(product);
     handleClose();
   };
-
+  const handleImage = (event) =>
+    setProduct({ ...product, image: event.target.files[0] });
   return (
     <>
       <Button variant="outline-dark" onClick={handleShow}>
@@ -50,10 +51,9 @@ function ProductModal({ oldProduct }) {
               <InputGroup.Text>Image</InputGroup.Text>
               <FormControl
                 name="image"
-                value={product.image}
-                type="text"
-                onChange={handleChange}
-                placeholder="Image"
+                type="file"
+                className="form-control"
+                onChange={handleImage}
               />
             </InputGroup>
             <InputGroup className="mb-3">
